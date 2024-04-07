@@ -16,7 +16,7 @@ struct AccountDetailsView: View {
             case let .failure(err):
                 Text("Cannot load account info: \(err.localizedDescription)")
             case let .success(info):
-                Text("\(info)")
+                Text("\(String(reflecting: info))")
             }
         }.onAppear {
             Task {

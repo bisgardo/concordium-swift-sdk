@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct WalletApp: App {
+struct ConcordiumExampleWalletApp: App {
     var body: some Scene {
         WindowGroup {
             NodeClientProvider(
