@@ -223,7 +223,7 @@ struct Root: AsyncParsableCommand {
 
                 print("Fetching crypto parameters (for commitment key).")
                 let hash = try await withGRPCClient(target: rootCmd.opts.target) { client in
-                    let cryptoParams = try await client.cryptographicParameters(block: BlockIdentifier.lastFinal)
+                    let cryptoParams = try await client.cryptographicParameters(block: .lastFinal)
                     print("Deriving account address and keys.")
                     let account = try SeedBasedAccountDerivation(
                         seed: WalletSeed(seedHex: seedHex, network: walletCmd.network.network),

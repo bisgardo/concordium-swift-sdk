@@ -14,6 +14,11 @@
 		61401AE32BC3340400F6EFA2 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61401ADD2BC3340400F6EFA2 /* AccountDetailsView.swift */; };
 		61401AE52BC3340400F6EFA2 /* NodeClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61401ADF2BC3340400F6EFA2 /* NodeClientProvider.swift */; };
 		61401AEA2BC3365800F6EFA2 /* Concordium in Frameworks */ = {isa = PBXBuildFile; productRef = 61401AE92BC3365800F6EFA2 /* Concordium */; };
+		CD3345232BC42CA900FE51A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD33451E2BC42CA900FE51A7 /* Assets.xcassets */; };
+		CD3345242BC42CA900FE51A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD33451F2BC42CA900FE51A7 /* Preview Assets.xcassets */; };
+		CD3345252BC42CA900FE51A7 /* SeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3345212BC42CA900FE51A7 /* SeedProvider.swift */; };
+		CD3345262BC42CA900FE51A7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3345222BC42CA900FE51A7 /* MainView.swift */; };
+		CD3345292BC42CF200FE51A7 /* MnemonicSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD3345282BC42CF200FE51A7 /* MnemonicSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,10 @@
 		61401ADD2BC3340400F6EFA2 /* AccountDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsView.swift; sourceTree = "<group>"; };
 		61401ADF2BC3340400F6EFA2 /* NodeClientProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeClientProvider.swift; sourceTree = "<group>"; };
 		61401AE82BC3345400F6EFA2 /* concordium-swift-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "concordium-swift-sdk"; path = ../..; sourceTree = "<group>"; };
+		CD33451E2BC42CA900FE51A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD33451F2BC42CA900FE51A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CD3345212BC42CA900FE51A7 /* SeedProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedProvider.swift; sourceTree = "<group>"; };
+		CD3345222BC42CA900FE51A7 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3345292BC42CF200FE51A7 /* MnemonicSwift in Frameworks */,
 				61401AEA2BC3365800F6EFA2 /* Concordium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +70,10 @@
 		61401ACB2BC3333000F6EFA2 /* ConcordiumExampleWallet */ = {
 			isa = PBXGroup;
 			children = (
+				CD33451E2BC42CA900FE51A7 /* Assets.xcassets */,
+				CD3345222BC42CA900FE51A7 /* MainView.swift */,
+				CD3345202BC42CA900FE51A7 /* Preview Content */,
+				CD3345212BC42CA900FE51A7 /* SeedProvider.swift */,
 				61401ADD2BC3340400F6EFA2 /* AccountDetailsView.swift */,
 				61401ADB2BC3340400F6EFA2 /* DisposableNodeClient.swift */,
 				61401ADF2BC3340400F6EFA2 /* NodeClientProvider.swift */,
@@ -87,6 +101,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD3345202BC42CA900FE51A7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CD33451F2BC42CA900FE51A7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,6 +127,7 @@
 			name = ConcordiumExampleWallet;
 			packageProductDependencies = (
 				61401AE92BC3365800F6EFA2 /* Concordium */,
+				CD3345282BC42CF200FE51A7 /* MnemonicSwift */,
 			);
 			productName = ConcordiumExampleWallet;
 			productReference = 61401AC92BC3333000F6EFA2 /* ConcordiumExampleWallet.app */;
@@ -134,6 +157,9 @@
 				Base,
 			);
 			mainGroup = 61401AC02BC3333000F6EFA2;
+			packageReferences = (
+				CD3345272BC42CF200FE51A7 /* XCRemoteSwiftPackageReference "MnemonicSwift" */,
+			);
 			productRefGroup = 61401ACA2BC3333000F6EFA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,7 +174,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3345242BC42CA900FE51A7 /* Preview Assets.xcassets in Resources */,
 				61401AD52BC3333100F6EFA2 /* Preview Assets.xcassets in Resources */,
+				CD3345232BC42CA900FE51A7 /* Assets.xcassets in Resources */,
 				61401AD12BC3333100F6EFA2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,9 +189,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				61401AE52BC3340400F6EFA2 /* NodeClientProvider.swift in Sources */,
+				CD3345262BC42CA900FE51A7 /* MainView.swift in Sources */,
 				61401AE32BC3340400F6EFA2 /* AccountDetailsView.swift in Sources */,
 				61401AE12BC3340400F6EFA2 /* DisposableNodeClient.swift in Sources */,
 				61401ACD2BC3333000F6EFA2 /* ConcordiumExampleWalletApp.swift in Sources */,
+				CD3345252BC42CA900FE51A7 /* SeedProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +404,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		CD3345272BC42CF200FE51A7 /* XCRemoteSwiftPackageReference "MnemonicSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Electric-Coin-Company/MnemonicSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		61401AE92BC3365800F6EFA2 /* Concordium */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Concordium;
+		};
+		CD3345282BC42CF200FE51A7 /* MnemonicSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD3345272BC42CF200FE51A7 /* XCRemoteSwiftPackageReference "MnemonicSwift" */;
+			productName = MnemonicSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
