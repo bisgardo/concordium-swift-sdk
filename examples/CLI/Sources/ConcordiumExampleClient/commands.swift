@@ -427,22 +427,32 @@ struct Root: AsyncParsableCommand {
                         identityIndex: walletCmd.identityIndex
                     )
                     print("Recovering identity.")
-                    let identity = try await req.response(session: URLSession.shared)
-
-                    let idxs = AccountCredentialSeedIndexes(
-                        identity: IdentitySeedIndexes(providerID: walletCmd.identityProviderID, index: walletCmd.identityIndex),
-                        counter: credentialCounter
+                    let identityRes = try await req.response(session: URLSession.shared)
+                    let identity = SeedBasedIdentityObject(
+                        identity: identityRes.value,
+                        indexes: IdentitySeedIndexes(
+                            providerID: walletCmd.identityProviderID,
+                            index: walletCmd.identityIndex
+                        )
                     )
+
                     print("Deriving credential deployment.")
                     let accountDerivation = SeedBasedAccountDerivation(seed: seed, cryptoParams: cryptoParams)
                     let credential = try accountDerivation.deriveCredential(
-                        seedIndexes: idxs,
-                        identity: identity.value,
+                        credentialCounter: credentialCounter,
+                        identity: identity,
                         provider: identityProvider,
                         threshold: 1
                     )
                     print("Deriving account.")
-                    let account = try accountDerivation.deriveAccount(credentials: [idxs])
+                    let account = try accountDerivation.deriveAccount(
+                        credentials: [
+                            AccountCredentialSeedIndexes(
+                                identity: identity.indexes,
+                                counter: credentialCounter
+                            ),
+                        ]
+                    )
                     print("Signing credential deployment.")
                     let signedTx = try account.keys.sign(deployment: credential, expiry: expiry)
                     print("Serializing credential deployment.")
@@ -505,7 +515,8 @@ struct Root: AsyncParsableCommand {
                 let export = try decryptLegacyWalletExport(export: encryptedExport, password: password)
                 let senderAddress = try walletCmd.account.address
                 print("Looking up account with address '\(senderAddress.base58Check)' in export.")
-                guard let sender = try AccountStore(export.toSDKType()).lookup(senderAddress) else {
+                let accounts = try export.toSDKType()
+                guard let sender = accounts.first(where: { $0.address == senderAddress }) else {
                     print("Account \(senderAddress) not found in export.")
                     return
                 }
