@@ -671,7 +671,6 @@ func withGRPCClient<T>(_ opts: GRPCOptions, _ f: (GRPCNodeClient) async throws -
     defer {
         try! group.syncShutdownGracefully()
     }
-    // Flip comment to use TLS (required for the official gRPC endpoints "grpc.testnet.concordium.com" etc.).
     let builder = opts.insecure
         ? ClientConnection.insecure(group: group)
         : ClientConnection.usingPlatformAppropriateTLS(for: group)

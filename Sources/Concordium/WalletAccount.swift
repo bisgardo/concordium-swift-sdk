@@ -49,7 +49,7 @@ public extension Signer {
     func sign(message: Data, address: AccountAddress) throws -> Signatures {
         var buf = ByteBuffer()
         buf.writeData(address.data)
-        buf.writeRepeatingByte(0, count: 8)
+        buf.writeInteger(UInt64(0))
         buf.writeData(message)
         let data = Data(buffer: buf)
         let hash = Data(SHA256.hash(data: data))

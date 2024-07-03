@@ -107,9 +107,13 @@ public typealias Energy = UInt64
 /// Transaction time specified as seconds since unix epoch.
 public typealias TransactionTime = UInt64
 
+/// A memo which can be included as part of a transfer. Max size is 256 bytes.
+public typealias Memo = Data
+
 /// The payload for an account transaction (only transfer is supported for now).
 public enum AccountTransactionPayload {
-    case transfer(amount: MicroCCDAmount, receiver: AccountAddress, memo: Data? = nil)
+    /// Transfer with an optional memo.
+    case transfer(amount: MicroCCDAmount, receiver: AccountAddress, memo: Memo? = nil)
 
     var cost: Energy {
         switch self {
